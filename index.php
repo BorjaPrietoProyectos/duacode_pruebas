@@ -30,4 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $equipoController->listarEquipos();
     }
 }
+
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    if ($_GET["accion"] === "mostrar_equipo") {
+        $equipoId = $_GET["equipoId"];
+        $equipoController = new EquipoController();
+        $equipoController->mostrarEquipo($equipoId);
+    }
+}
 ?>

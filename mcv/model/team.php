@@ -46,5 +46,20 @@ class EquipoModel {
             return false;
         }
     }
+
+    public function obtenerEquipo($equipoId) {
+        $sql = "SELECT * FROM equipos WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("i", $equipoId);
+        $stmt->execute();
+        $resultados = $stmt->get_result();
+    
+        if ($resultados) {
+            $equipo = $resultados->fetch_assoc();
+            return $equipo;
+        } else {
+            return false;
+        }
+    }
 }
 ?>

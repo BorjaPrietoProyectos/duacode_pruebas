@@ -10,9 +10,9 @@
         <ul>
             <?php foreach ($equipos as $equipo): ?>
                 <li>
-                    Nombre: <?php echo $equipo['nombre_equipo']; ?>,
-                    Ciudad: <?php echo $equipo['ciudad']; ?>,
-                    Deporte: <?php echo $equipo['deporte']; ?>
+                    <a href="index.php?accion=mostrar_equipo&equipoId=<?php echo $equipo['id']; ?>">
+                        <?php echo $equipo['nombre']; ?>
+                    </a>
                 </li>
             <?php endforeach; ?>
         </ul>

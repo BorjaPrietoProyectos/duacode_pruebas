@@ -26,5 +26,17 @@ class EquipoController {
             echo "Error al obtener los equipos.";
         }
     }
+
+    public function mostrarEquipo($equipoId) {
+        $equipoModel = new EquipoModel();
+    
+        $equipo = $equipoModel->obtenerEquipo($equipoId);
+    
+        if ($equipo) {
+            include_once 'mcv\view\mostrar_equipo.php';
+        } else {
+            echo "El equipo no existe.";
+        }
+    }
 }
 ?>
