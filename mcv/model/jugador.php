@@ -22,7 +22,7 @@ class JugadorModel {
         $numero = $this->db->real_escape_string($numero);
         $equipo = $this->db->real_escape_string($equipo);
 
-        $sql = "INSERT INTO jugadores (nombre, numero, equipo_id) 
+        $sql = "INSERT INTO jugador (nombre, numero, equipo_id) 
                 VALUES ('$nombre', '$numero', '$equipo')";
 
         if ($this->db->query($sql) === TRUE) {

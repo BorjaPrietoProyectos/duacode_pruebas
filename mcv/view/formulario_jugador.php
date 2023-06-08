@@ -6,7 +6,7 @@
 <body>
     <h2>Formulario de Jugador</h2>
 
-    <form action="../controller/jugador_controller.php" method="POST">
+    <form action="../../index_jugador.php" method="POST">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
