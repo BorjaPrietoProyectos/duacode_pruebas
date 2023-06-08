@@ -22,5 +22,29 @@
             <td><?php echo $equipo['numero_jugadores']; ?></td>
         </tr>
     </table>
+
+    <h3>Jugadores:</h3>
+    <?php if (!empty($jugadores)): ?>
+    <ul>
+        <?php foreach ($jugadores as $jugador): ?>
+        <li>
+            <?php echo $jugador['nombre']; ?> (Número: <?php echo $jugador['numero']; ?>)
+            <form action="editar_jugador.php" method="POST">
+                <input type="hidden" name="jugador_id" value="<?php echo $jugador['id']; ?>">
+                <input type="text" name="nombre" value="<?php echo $jugador['nombre']; ?>">
+                <input type="number" name="numero" value="<?php echo $jugador['numero']; ?>">
+                <input type="submit" value="Editar">
+            </form>
+            
+            <form action="eliminar_jugador.php" method="POST">
+                <input type="hidden" name="jugador_id" value="<?php echo $jugador['id']; ?>">
+                <input type="submit" value="Eliminar">
+            </form>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php else: ?>
+    <p>Jugadores no inscritos.</p>
+    <?php endif; ?>
 </body>
 </html>

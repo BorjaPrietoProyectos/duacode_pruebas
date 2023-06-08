@@ -31,4 +31,47 @@ class JugadorModel {
             return false;
         }
     }
+
+    public function obtenerJugadoresEquipo($equipoId) {
+        $equipoId = $this->db->real_escape_string($equipoId);
+
+        $sql = "SELECT * FROM jugador WHERE equipo_id = '$equipoId'";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            $jugadores = array();
+            while ($row = $result->fetch_assoc()) {
+                $jugadores[] = $row;
+            }
+            return $jugadores;
+        } else {
+            return false;
+        }
+    }
+    
+    public function editarJugador($jugadorId, $nombre, $numero) {
+        $nombre = $this->db->real_escape_string($nombre);
+        $numero = $this->db->real_escape_string($numero);
+        $jugadorId = $this->db->real_escape_string($jugadorId);
+    
+        $sql = "UPDATE jugador SET nombre = '$nombre', numero = '$numero' WHERE id = '$jugadorId'";
+    
+        if ($this->db->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function eliminarJugador($jugadorId) {
+        $jugadorId = $this->db->real_escape_string($jugadorId);
+    
+        $sql = "DELETE FROM jugador WHERE id = '$jugadorId'";
+    
+        if ($this->db->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -9,7 +9,7 @@ class JugadorController {
 
     public function guardarJugador($nombre, $numero, $equipo) {
         $resultado = $this->jugadorModel->guardarJugador($nombre, $numero, $equipo);
-        
+       
         return $resultado;
     }
 }
