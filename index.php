@@ -5,6 +5,7 @@ require_once 'mcv\controller\team_controller.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+
     $nombre_equipo = $_POST["nombre_equipo"];
     $ciudad = $_POST["ciudad"];
     $deporte = $_POST["deporte"];
@@ -18,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($resultado) {
         echo "Equipo guardado correctamente en la base de datos.";
+        header('Location: /index.php?accion=listar_equipos');
+        die();
     } else {
         echo "Error al guardar el equipo en la base de datos.";
     }

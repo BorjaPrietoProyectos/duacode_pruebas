@@ -19,5 +19,7 @@
     <?php else: ?>
         <p>No hay equipos para mostrar.</p>
     <?php endif; ?>
+
+    <a href="/mcv/view/formulario.php">Volver al formulario</a>
 </body>
 </html>
